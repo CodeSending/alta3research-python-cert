@@ -11,7 +11,7 @@ print(proto)
 protoa.append(proto2) # pass proto2 as an argument to the append method
 print(protoa)
 
-
-
+print(protoa.count("https"))
+#mkdiprint(protoa.sort(*, key=None, reverse=False))
 
 
