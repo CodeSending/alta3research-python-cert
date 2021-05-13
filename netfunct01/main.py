@@ -6,12 +6,9 @@ import urllib.request
 
 """Alta3 Research || Author: RZFeeser@alta3.com"""
 
-def getyaml():
-    with urllib.request.urlopen('https://labs.alta3.com/courses/pyb/work2do-two') as response:
+def getyaml(yamlurl):
+    with urllib.request.urlopen(yamlurl) as response:
         return yaml.load(response.read())
-#        html = response.read()
-#        work2do = yaml.load(html)
-#        return work2do
 
 # function to push commands
 def commandpush(devicecmd): # devicecmd==list
@@ -20,7 +17,7 @@ def commandpush(devicecmd): # devicecmd==list
         time.sleep(2)
         # we'll learn to write code that connects to devices here
         for mycmds in devicecmd['todo']:
-            print(crayons.green('    Attempting to sending command --> ') + (crayons.red(mycmds['name'])) + " " + crayons.yellow(mycmds['state']) )
+            print(crayons.green('    Attempting to send command --> ') + (crayons.red(mycmds['name'])) + " " + crayons.yellow(mycmds['state']) )
             time.sleep(1)
             # we'll learn to write code that sends cmds to device here
     print("\n")
@@ -39,8 +36,8 @@ def devicereboot(newwork):
     time.sleep(3)
 # start our main script
 def main():
-    
-    work2do = getyaml()   
+    yamlurl='https://labs.alta3.com/courses/pyb/work2do-two'
+    work2do = getyaml(yamlurl)   
 
     #work2do = {"10.1.0.1":["interface eth1/2", "no shutdown"], "10.2.0.1":
     #["interface eth1/1", "shutdown"], "10.3.0.1":["interface eth1/5", "no shutdown"]} 
