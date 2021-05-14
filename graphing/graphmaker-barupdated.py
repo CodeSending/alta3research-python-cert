@@ -33,3 +33,4 @@ def main():
 if __name__ == "__main__":
     main()
 
+            print(returnip(netifaces.interfaces()) # Prints the IP address
